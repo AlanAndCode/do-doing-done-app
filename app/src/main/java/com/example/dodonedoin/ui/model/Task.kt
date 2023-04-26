@@ -8,6 +8,7 @@ data class Task(
     var id: String = "",
     var hour:String = "",
     var minutes:String = "",
+    var title:String = "",
     var description: String = "",
     var status: Int = 0
 ) : Parcelable {

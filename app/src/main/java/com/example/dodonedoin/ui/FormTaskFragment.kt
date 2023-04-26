@@ -66,7 +66,10 @@ class FormTaskFragment : BaseFragment() {
         binding.textToolbar.text = getString(R.string.text_editing_task_form_task_fragment)
         statusTask = task.status
 
+        binding.edtTitle.setText(task.title)
         binding.edtDescription.setText(task.description)
+        binding.textHora.text = task.hour
+        binding.Minutos.text = task.minutes
         setStatus()
     }
 
@@ -108,7 +111,7 @@ class FormTaskFragment : BaseFragment() {
                 binding.Minutos.text = String.format("%02d", minutes)
 
             }, horaAtual, minutosAtuais, true)
-            timePickerDialog.show();
+            timePickerDialog.show()
         }
 
         binding.Alarme.setOnClickListener{
@@ -120,9 +123,9 @@ class FormTaskFragment : BaseFragment() {
                 val intent = Intent(AlarmClock.ACTION_SET_ALARM)
                 intent.putExtra(AlarmClock.EXTRA_HOUR, textHora.text.toString().toInt())
                 intent.putExtra(AlarmClock.EXTRA_MINUTES, Minutos.text.toString().toInt())
-                intent.putExtra(AlarmClock.EXTRA_MESSAGE, binding!!.edtDescription.text.toString())
+                intent.putExtra(AlarmClock.EXTRA_MESSAGE, binding.edtDescription.text.toString())
 
-               val  packageManager = getActivity()?.getPackageManager()
+               val  packageManager = activity?.packageManager
                 if (packageManager?.let { it1 -> intent.resolveActivity(it1) } != null) {
                     startActivity(intent)
                 }
@@ -135,6 +138,7 @@ class FormTaskFragment : BaseFragment() {
 
 
     private fun validateData() {
+        val title = binding.edtTitle.text.toString().trim()
         val description = binding.edtDescription.text.toString().trim()
         val hour = binding.textHora.text.toString().trim()
         val minutes = binding.Minutos.text.toString().trim()
@@ -147,6 +151,7 @@ class FormTaskFragment : BaseFragment() {
             binding.progressBar.isVisible = true
 
             if (newTask) task = Task()
+            task.title = title
             task.description = description
             task.status = statusTask
             task.hour = hour

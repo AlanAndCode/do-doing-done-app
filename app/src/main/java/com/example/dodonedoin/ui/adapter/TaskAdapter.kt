@@ -5,12 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dodonedoin.R
 import com.example.dodonedoin.databinding.ItemAdapterBinding
-import com.example.dodonedoin.ui.DetailFragment
 
 import com.example.dodonedoin.ui.model.Task
 
@@ -30,18 +27,21 @@ class TaskAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
+
             ItemAdapterBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
             )
+
         )
+
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val task = taskList[position]
 
-        holder.binding.textDescription.text = task.description
+        holder.binding.textTitle.text = task.title
         holder.binding.textHora.text = task.hour
         holder.binding.Minutos.text = task.minutes
         holder.binding.btnDelete.setOnClickListener { taskSelected(task, SELECT_REMOVE) }
@@ -51,9 +51,7 @@ class TaskAdapter(
 
             0 -> {
                 holder.binding.ibBack.isVisible = false
-                holder.binding.btnDetails.setOnClickListener{
-                    R.id.action_homeFragment_to_detailFragment
-                }
+
                 holder.binding.ibNext.setColorFilter(
                     ContextCompat.getColor(context, R.color.color_doing)
                 )
