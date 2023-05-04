@@ -19,7 +19,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="382dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="@+id/btnDelete"
+            app:layout_constraintTop_toTopOf="@+id/btnDelete">
 
             <TextView
                 android:id="@+id/textTitle"
@@ -114,39 +116,47 @@
             <TextView
                 android:id="@+id/text_txt"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginStart="152dp"
                 android:text="Horario do Lembrete:"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toStartOf="@+id/text_hora"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/btnDelete"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/doisPontos" />
 
             <TextView
                 android:id="@+id/text_hora"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="36dp"
                 android:text="00"
                 android:textSize="15sp"
-                app:layout_constraintEnd_toStartOf="@+id/doisPontos"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/doisPontos" />
 
             <TextView
                 android:id="@+id/doisPontos"
-                android:layout_width="wrap_content"
+                android:layout_width="3dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:text=":"
+                android:layout_marginTop="00dp"
 
+                android:text=":"
                 android:textSize="15sp"
+
                 app:layout_constraintEnd_toStartOf="@+id/Minutos"
-                app:layout_constraintTop_toBottomOf="@+id/ibNext" />
+                app:layout_constraintStart_toEndOf="@+id/text_hora"
+                app:layout_constraintTop_toBottomOf="@+id/btnDetails" />
 
             <TextView
                 android:id="@+id/Minutos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
                 android:text="00"
                 android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="@+id/ibNext"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/doisPontos" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
