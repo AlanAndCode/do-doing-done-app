@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DDD</string>
+    <string name="app_name">Programe seu dia</string>
 
     <!--    Generics-->
     <string name="text_email">E-mail</string>
@@ -43,7 +43,7 @@
     <string name="text_editing_task_form_task_fragment">Editando tarefa…</string>
     <string name="text_status_form_task_fragment">Status</string>
     <string name="text_btn_save_task_form_task_fragment">Salvar</string>
-    <string name="text_description_empty_form_task_fragment">Informe uma descrição para a tarefa.</string>
+    <string name="text_title_empty_form_task_fragment">Informe um titulo para a tarefa.</string>
     <string name="text_save_task_sucess_form_task_fragment">Tarefa salva com sucesso.</string>
     <string name="text_update_task_sucess_form_task_fragment">Tarefa atualizada com sucesso.</string>
     <string name="text_erro_save_task_form_task_fragment">Erro ao salvar a tarefa.</string>

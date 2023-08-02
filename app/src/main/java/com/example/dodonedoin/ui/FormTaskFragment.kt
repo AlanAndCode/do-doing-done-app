@@ -123,7 +123,7 @@ class FormTaskFragment : BaseFragment() {
                 val intent = Intent(AlarmClock.ACTION_SET_ALARM)
                 intent.putExtra(AlarmClock.EXTRA_HOUR, textHora.text.toString().toInt())
                 intent.putExtra(AlarmClock.EXTRA_MINUTES, Minutos.text.toString().toInt())
-                intent.putExtra(AlarmClock.EXTRA_MESSAGE, binding.edtDescription.text.toString())
+                intent.putExtra(AlarmClock.EXTRA_MESSAGE, binding.edtTitle.text.toString())
 
                val  packageManager = activity?.packageManager
                 if (packageManager?.let { it1 -> intent.resolveActivity(it1) } != null) {
@@ -144,7 +144,7 @@ class FormTaskFragment : BaseFragment() {
         val minutes = binding.Minutos.text.toString().trim()
 
 
-        if (description.isNotEmpty()) {
+        if (title.isNotEmpty()) {
 
             hideKeyboard()
 
@@ -159,7 +159,7 @@ class FormTaskFragment : BaseFragment() {
 
             saveTask()
         } else {
-            showBottomSheet(message = R.string.text_description_empty_form_task_fragment)
+            showBottomSheet(message = R.string.text_title_empty_form_task_fragment)
         }
     }
 
